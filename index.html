@@ -109,8 +109,8 @@ async set(v){const d=await this.open();d.transaction('s','readwrite').objectStor
 let S={users:[],session:null,tasks:[],notes:[],theme:'auto',accent:'#3b82f6'},tab='home',am='login',cal={month:false,ref:new Date()},selDay=null,fil={q:'',m:'',p:'',dmin:1,dmax:10},nq='',nm='',F=null,N=null,kind=null;
 const cache=new Map(),save=()=>{S.dirty=true;S.rev=(S.rev||0)+1;DB.set(S).catch(()=>toast('No se pudo guardar'));sched()};
 // ===== NUBE (Supabase) =====
-
-const SB_URL = 'https://gpppsnxteixbdskcqpnpy.supabase.co',
+// ===== NUBE (Supabase) =====
+const SB_URL = 'https://gppsnxteixbdskcqpnpy.supabase.co',
       SB_KEY = 'sb_publishable_UaAgP_9RpdEjM5Lrh2PDHw_tCCV_axi',
       WEB_URL = 'https://arianyelinarincon.github.io/Uorganizer/';
 const sb=(!SB_URL.startsWith('PEGA')&&window.supabase)?supabase.createClient(SB_URL,SB_KEY):null,isRec=/type=recovery/.test(location.hash);
