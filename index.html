@@ -109,7 +109,9 @@ async set(v){const d=await this.open();d.transaction('s','readwrite').objectStor
 let S={users:[],session:null,tasks:[],notes:[],theme:'auto',accent:'#3b82f6'},tab='home',am='login',cal={month:false,ref:new Date()},selDay=null,fil={q:'',m:'',p:'',dmin:1,dmax:10},nq='',nm='',F=null,N=null,kind=null;
 const cache=new Map(),save=()=>{S.dirty=true;S.rev=(S.rev||0)+1;DB.set(S).catch(()=>toast('No se pudo guardar'));sched()};
 // ===== NUBE (Supabase) =====
-const SB_URL='PEGA_AQUI_TU_URL',SB_KEY='PEGA_AQUI_TU_ANON_KEY',WEB_URL='';
+const SB_URL='https://gpppsnxteixbdskcqpnpy.supabase.co',
+      SB_KEY='SUA_CHAVE_ANON_AQUI',
+      WEB_URL='SUA_URL_DO_GITHUB_OU_NETLIFY_AQUI';
 const sb=(!SB_URL.startsWith('PEGA')&&window.supabase)?supabase.createClient(SB_URL,SB_KEY):null,isRec=/type=recovery/.test(location.hash);
 let FR={f:[],rq:[],sh:[],out:0,code:''},shT=null,pt;const pend=new Set();
 const em=e=>{const m=(e.message||'').toLowerCase();return m.includes('invalid login')?'Correo o contraseña incorrectos':m.includes('already registered')?'Ese correo ya tiene cuenta':m.includes('not confirmed')?'Confirma tu correo antes de entrar':m.includes('rate limit')?'Demasiados intentos, espera un poco':m.includes('fetch')?'Sin conexión':e.message};
